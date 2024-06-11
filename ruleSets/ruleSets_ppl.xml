@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" initials="closedup,withoutperiods"/>
+	</styleName>
+	<styleName id="f019" xpath="//*[@class='jrnlArtTitle']" name="Article Title" case="sentenceCase">
+		<description>Article title should be in sentence case</description>
+	</styleName>	
+	<styleName id="f019" xpath="//*[@class='jrnlArtSubTitle']" name="Article SubTitle" case="titleCase">
+		<description>Article title should be in sentence case</description>
+	</styleName>	
+	<styleName id="f007" name="Abstract Title" xpath="//*[@class='jrnlAbsTitle']" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Abstract title should be in Roman and remove end punc.</description>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='body']//*[contains(@class,'jrnlHead')][ php:functionString('preg_match', '/^([\d\.]+[\s\.])(?=\p{Lu}+)/u', .) > 0 ]">
+		<function name="tagContent" tag-regex="/^([\d\.]+[\s\.])(?=\p{Lu}+)/u" attribute="data-tag-desc='HEADLABEL'];data-tag-type='HEADLABEL'];data-replace='delete';data-pattern='delete'"/>
+		<description>Tag head label</description>
+	</styleName>	
+	<styleName id="e003" style="jrnlHead1" name="Headings" case="sentenceCase" >
+		<detail>1st level [H1]</detail>
+		<desciption> </desciption>
+	</styleName>
+	<styleName id="e003" style="jrnlHead2" name="Headings" case="sentenceCase">
+		<detail>2nd level [H2]</detail>
+		<desciption> </desciption>
+	</styleName>
+	<styleName id="e003" style="jrnlHead3" name="Headings" case="sentenceCase">
+		<detail>3rd level [H3]</detail>
+		<desciption> </desciption>
+	</styleName>	
+	<styleName id="e029" xpath="//*[@data-tag-desc='HEADLABEL']" editing-rule-id="1">
+		<description>Remove head label</description>
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table" break="true">
+		<function name="blockFloats"/>
+	</styleName>
+	<styleName id="f047" name="ParseReferece" xpath="//div[@class='back']">
+		<function name="parseReference"/>
+	</styleName>
+	<styleName id="f048" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='HIGH']" name="Highlighted Word" editing-rule-id="1">
+		<description>Highlighted Word</description>
+	</styleName>
+	<styleName id="e026" xpath="//span[@data-tag-desc='VAL,RNGS,RNGC,RNGE,UNT']" name="Range" editing-rule-id="1">
+		<description>En-dashes for ranges, 30–90% not 30%–90%</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='NUM,TIME']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e023" xpath="//span[@data-tag-desc='VAL,UNT']" name="Temperature" editing-rule-id="1">
+		<description>Volume to vol</description>
+		<description>Weight to wt</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='THSE']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='THSE']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='PROFTITLE']" name="PROF TITLE" editing-rule-id="1">
+		<description>PROF TITLE should not end with dot(.)</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='ETL']" name="ET AL" editing-rule-id="1">
+		<description>Remvoe italics</description>
+	</styleName>
+	<styleName id="e033" xpath="//span[@data-tag-desc='SNUM']" name="Numbers lower than 10" editing-rule-id="1">
+		<description>Spell out unless with unit, in which case numerals</description>
+	</styleName>
+		<styleName id="e030" xpath="//span[@data-tag-desc='EGNR']" name="Examples" editing-rule-id="1">
+		<description>e.g., i.e, to eg, and ie,</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='IENR']" name="Examples" editing-rule-id="1">
+		<description>e.g., i.e, to eg, and ie,</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='EGIEPR']" name="Examples" editing-rule-id="1">
+		<description>e.g., i.e, to eg, and ie,</description>
+	</styleName>
+	<styleName id="e036" xpath="//span[@data-tag-desc='FNW']" name="Foreign Words" editing-rule-id="1">
+		<description>Remove italics</description>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//div[@class='body']/*[not(self::div)][not(contains(@class, 'Deleted'))][1][count(//div[@class='body']/*[contains(@class,'jrnlHead')]) > 0]">
+		<function type="action" name="addQuery">Please check the heading levels are appropriate.</function>
+	</styleName>
+	<styleName id="f009" name="addQuery" xpath="//div[@class='front']//*[@class='jrnlAuthors'][1]">
+		<function type="action" name="addQuery">Please check that author names and affiliations are correct.</function>
+	</styleName>
+	<styleName id="f009" name="addQuery" xpath="//div[@class='front']//*[@class='jrnlAbsPara'][1]">
+		<function type="action" name="addQuery">Are you happy with the author headshot?</function>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+</styles>

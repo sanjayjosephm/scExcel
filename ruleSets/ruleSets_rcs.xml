@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="f019" xpath="//*[@class='jrnlArtTitle']" name="Article Title" case="sentenceCase">
+		<description>Article title should be in sentence case</description>
+	</styleName>
+	<styleName id="f007" name="Abstract Title" xpath="//*[@class='jrnlAbsTitle']" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Abstract title should be in Roman and remove end punc.</description>
+	</styleName>
+	<styleName id="f010" name="Headings" xpath="//*[contains(@class,'jrnlHead')]" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence Case</description>
+	</styleName>
+	<styleName id="e021" xpath="//span[@data-tag-desc='VAL,RNGS,RNGC,RNGE,UNT']" name="Range" editing-rule-id="1">
+		<description>En-dashes for ranges, 30–90% not 30%–90%</description>
+	</styleName>
+	<styleName id="f050" xpath="//span[@data-tag-desc='APP,PRE,PREP,RNG,SUF,SREP,UNT']" name="SI Units" editing-rule-id="1">
+		<description>Range Should have en dash</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Percentage" editing-rule-id="1">
+		<description>Closed up 80%</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='HYPTOMIN,VAL']" name="Value with Sign " editing-rule-id="1">
+		<description>value with signs: eg, -10</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='VERSUS']" name="Versus to vs" editing-rule-id="1">
+		<description>change vs/vs. to versus</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='SNUM'][not(ancestor::table)]" name="Ordinals" editing-rule-id="1">
+		<description>only ordinals one to eleven spelled out</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='ORDI']" name="Ordinals" editing-rule-id="1">
+		<description>only ordinals one to eleven spelled out</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='THSE']" name="Thousand separator" editing-rule-id="1">
+		<description>Thousand separator</description>
+	</styleName>
+	<styleName id="e007" name="ETL" xpath="//span[@data-tag-desc='ETL']" editing-rule-id="1">
+		<description>Add italics to et al</description>
+		<function name="addItalics"/>
+	</styleName>
+	<styleName id="e029" xpath="//*[@data-tag-desc='HEADLABEL']" editing-rule-id="1">
+		<description>Remove head label</description>
+	</styleName>
+		<styleName id="e051" xpath="//span[@data-tag-desc='LQUOTE']" name="Qoute" editing-rule-id="1">
+		<description>Double Quote to Single Quote</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='RQUOTE']" name="Qoute" editing-rule-id="1">
+		<description>Double Quote to Single Quote</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlAckHead']" setContent="Acknowledgments">
+		<description>Set .jrnlAckHead content to be Acknowledgments</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlContribHead']" setContent="Author contributions">
+		<description>Set Contrib Head content to be Author Contributions</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlCompHead']" setContent="Disclosure">
+		<description>Set Comp. Head content to be Conflict of Interest Statement</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlAppHead']" setContent="Supplementary material(s)">
+		<description>Set .jrnlAppHead content to be Supplementary material(s)</description>
+	</styleName>
+	<styleName id="f018" xpath="//span[@class='jrnlFigRef']" name="Figure Citations" validate-citation="1">
+		<description>All the Figures should be cited in the text; if not, this should be raised as author query. Part figure citations in the text if missing must be queried to author.</description>
+	</styleName>
+	<styleName id="f019" xpath="//p[@class='jrnlTblCaption']//span[@class='label']|//p[@class='jrnlFigCaption']//span[@class='label']" name="Table and Figure Caption" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Figure and Table label should be bold</description>
+	</styleName>
+	<styleName id="e013" xpath="//span[@class='jrnlTblRef']" name="Table Citations" validate-citation="1">
+		<description>Capital T e.g. see Table 1</description>
+	</styleName>
+	<styleName id="f020" xpath="//span[@class='jrnlPatterns'][@data-tag-desc='SYM']" name="Superscript Symbols" editing-rule-id="1">
+		<description>copyright and trademark symbols should appear in superscript</description>
+	</styleName>
+	<styleName id="f020" xpath="//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCity']|//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCountry']" replaceUsingRegex="/United Kingdom|England/|||UK"  name="UK">
+		<description>United Kingdom to UK</description>
+	</styleName>
+	<styleName id="f020" xpath="//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCountry']" replaceUsingRegex="/United States( of America)?|USA/|||US" name="USA">
+		<description>United States of America or United States to US</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlRefHead']" setContent="References">
+		<description>Set Ref Head content to be References</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='FNW']" name="Foreign Words" editing-rule-id="1">
+		<description>Remove italics</description>
+	</styleName>
+	<styleName id="e030" xpath="//*[@data-tag-desc='VAR,OPR,VAL,OPRS,VALS,UNT']" editing-rule-id="1">
+		<description>Change tilde to  when tagged as operator</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='HIGH']" name="Foreign Words" editing-rule-id="1">
+		<description>Highlight-word replace</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='EGIEPR']" name="Examples" editing-rule-id="1">
+		<description>e.g. i.e to eg., and ie.,</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='IENR']" name="Examples" editing-rule-id="1">
+		<description>i.e to ie.</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='EGNR']" name="Examples" editing-rule-id="1">
+		<description>e.g. i.e to eg.</description>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+</styles>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" />
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table" break="true">
+		<function name="blockFloats"/>
+	</styleName>
+	<styleName id="e048" name="tableFNOrder" xpath="//div[@class='body']" removeFormatting="sup">
+		<function name="tableFNOrder" order="*,†,‡,§,¶,**,††"/>
+	</styleName>
+	<!-- Removed parseReferenceAuthors due to author split done in CSL. Hemamalini 01-06-2023 -->
+	<!-- <styleName id="f001" name="parseReferenceAuthors" xpath="//div[@class='back']">
+		<function name="parseReferenceAuthors"/>
+	</styleName> -->
+	<styleName id="f001" name="referenceGrouping" xpath="//div[@class='back']">
+		<function name="referenceGrouping"/>
+	</styleName>
+	<styleName id="f001" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//div[@class='front'][p[@class='jrnlAuthors']/span[@class='jrnlAuthorGroup']]" project="ijm">
+		<function name="addComponent" data-xpath="//div[@class='front']" updateAuthor="true" author_1="" author_2="" author_more="" author-xpath="//div[@class='front']/p[@class='jrnlAuthors']/span[@class='jrnlAuthorGroup']/span[@class='jrnlAuthor']/span[@class='jrnlSurName']">
+			<div class="jrnlPermission" data-editable="false">
+				<p class="jrnlCopyrightStmt">© [year], [author]</p>
+				<span class="jrnlCopyrightYear">[year]</span>
+				<p class="jrnlCopyrightHolder">[author]</p>
+				<p xmlns:xlink="http://www.w3.org/1999/xlink" class="jrnlLicense" data-link="http://creativecommons.org/licenses/by/4.0/" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+					<license_ref>http://creativecommons.org/licenses/by/4.0/</license_ref>
+					<span class="jrnlLicensePara">This article is distributed under the terms of the <span class="jrnlExtLink" ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</span>, which permits unrestricted use and redistribution provided that the original author and source are credited.</span>
+				</p>
+			</div>
+		</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//div[@class='front']//div[@class='jrnlAbsGroup']">	
+		<function name="addComponent" data-xpath="//div[@class='front']//div[@class='jrnlAbsGroup']">
+			<p class="jrnlObjectID" pub-id-type="doi">10.34196/{articleID}</p>
+		</function>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+</styles> 

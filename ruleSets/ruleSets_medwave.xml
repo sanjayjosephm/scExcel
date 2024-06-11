@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="e001" xpath="//*[@class='jrnlBlockQuote']//span[@class='jrnlPatterns']">
+		<function name="DOMRemove" />
+		<description>Remove all tagging info inside block quote by unwrapping its children nodes</description>
+	</styleName>
+	<styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" initials="spaced,withoutperiods"/>
+	</styleName>
+	<styleName id="f001" xpath="//*[@class='jrnlArtTitle']" name="Article title: Capitalization after colon">
+		<description>Capitalize after a colon</description>
+		<function name="capitalizeColonAfter"/>
+	</styleName>
+	<styleName id="f007" name="Abstract" xpath="//div[@class='jrnlAbsGroup'][@data-type='unstructured']">
+		<function name="addAbsHead" content="Abstract" />
+	</styleName>
+	<styleName id="f007" name="Abstract Title" xpath="//*[@class='jrnlAbsTitle']" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Abstract title should be in Roman and remove end punc.</description>
+	</styleName>
+	<styleName id="f010" name="Headings" xpath="//*[contains(@class,'jrnlHead')]" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence Case</description>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='body']//*[contains(@class,'jrnlHead')][ php:functionString('preg_match', '/^([\d\.]+[\s\.])(?=\p{Lu}+)/u', .) > 0 ]">
+		<function name="tagContent" tag-regex="/^([\d\.]+[\s\.])(?=\p{Lu}+)/u" attribute="data-tag-desc='HEADLABEL'];data-tag-type='HEADLABEL'];data-replace='delete';data-pattern='delete'"/>
+		<description>Tag head label</description>
+	</styleName>	
+	<styleName id="f049" name="DOI" xpath="//span[@data-tag-desc='DOI']">
+		<function name="addDOILink"/>   <!-- need function to add DOI link -->
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlAppHead']" setContent="Supplementary material(s)">
+		<description>Set .jrnlAppHead content to be Supplementary material(s)</description>
+	</styleName>
+	<styleName id="f018" xpath="//span[@class='jrnlFigRef']" name="Figure Citations" validate-citation="1">
+		<description>Figure citations in text should be in Full, bold and linked to the respective figure.</description>
+	</styleName>
+	<styleName id="f018" xpath="//span[@class='jrnlFigRef']" name="Figure Citations" validate-citation="1">
+		<description>All the Figures should be cited in the text; if not, this should be raised as author query. Part figure citations in the text if missing must be queried to author.</description>
+	</styleName>
+	<styleName id="f017" xpath="//span[@class='partLabel']" name="PartLabel">
+		<description>Part label mention in figure caption must in uppercase</description>
+		<function name="uppercase"/>
+	</styleName>
+	<styleName id="f019" xpath="//p[@class='jrnlTblCaption']//span[@class='label']|//p[@class='jrnlFigCaption']//span[@class='label']" name="Table and Figure Caption" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Figure and Table label should be bold</description>
+	</styleName>
+	<styleName id="f019" xpath="//table/thead/tr/*" name="Table Head" case="sentenceCase">
+		<description>Table head should be in sentence case</description>
+	</styleName>
+	<styleName id="f020" xpath="//span[@class='jrnlTblRef']" name="Table Citations" validate-citation="1">
+		<description>Text citations of Tables should be in full, bold and linked with respective table.</description>
+	</styleName>
+	<styleName id="e013" xpath="//*[@class='jrnlBlockQuote']" replaceUsingRegex="/^[\x{201C}\x{2018}\x{0022}\x{0027}]+/u===/[\x{201D}\x{2018}\x{0022}\x{0027}]+$/u">
+		<description>Remove quote from block quote</description>
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table" break="true">
+		<function name="blockFloats"/>
+	</styleName>
+	<styleName id="e013" xpath="//p[@class='jrnlTblCaption'][@data-id]">
+		<function name="splitCaptions"/>
+	</styleName>
+	<styleName id="e012" xpath="//p[@class='jrnlFigCaption']|//p[@class='jrnlTblCaption']|//*[@class='jrnlTblFoot'][not(@data-track='del')]">
+		<function name="addEndChar" endChar="."/>
+		<description>Add dot at end of captions</description>
+	</styleName>
+	<styleName id="f047" name="ParseReferece" xpath="//div[@class='back']">
+		<function name="parseReference"/>
+	</styleName>
+	<styleName id="f048" name="tableBibformat" xpath="//div[@class='body']|//div[@class='back']">
+		<function name="tableBibformat"/>
+	</styleName>
+	<styleName id="f048" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="e048" name="tableFNOrder" xpath="//div[@class='body']">
+		<function name="tableFNOrder" order="a,b,c,d,e,f,g,h" abbr-order="alpha">
+			<p class="jrnlTblFoot" fn-type="abbrev">
+				<span class="jrnlTblDefItem" data-suffix="; " data-suffix-lastnode=".">
+					<span class="jrnlAbbrevTerm"  data-suffix=", "/>
+					<span class="jrnlFootDefinition"/>
+				</span>
+			</p>
+		</function>
+	</styleName>
+	<styleName id="e048" name="unboldThead" xpath="//div[@class='body']">
+		<function name="unboldThead"/>
+	</styleName>
+	<styleName id="e048" xpath="//thead/tr/th/*|//thead/tr/td/*">
+		<function name="addBold"/>
+	</styleName>
+	<styleName id="e048" name="equalconfig" xpath="//div[@class='front']">
+		<function name="equalconfig"/>
+	</styleName>
+	<styleName id="f020" xpath="//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCity']|//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCountry']" replaceUsingRegex="/United Kingdom|England/|||UK"  name="UK">
+		<description>United Kingdom to UK</description>
+	</styleName>
+	<styleName id="f020" xpath="//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCountry']" replaceUsingRegex="/United States( of America)?/|||USA" name="USA">
+		<description>United States of America or United States to USA</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlRefHead'][ php:functionString('preg_match', '/(Bibliographic\s?Reference)s?/i', .) &lt; 1 ]" setContent="References">
+		<description>Set Ref Head content to be References</description>
+	</styleName>
+	<styleName id="f007" name="Author Degree" xpath="//*[@class='jrnlAuthors']//*[@class='jrnlDegrees']">
+		<function name="markDeleted" />
+		<description>Mark funding info as deleted since, its moved to ack. section</description>
+	</styleName>
+	<!-- <styleName id="f048" name="addQuery" xpath="//span[@class='jrnlUncitedRef'][@data-uncited][@data-cite-type='reference']">
+		<function type="action" name="addQuery" data-query-action="uncited-citation">Dear Author, Please provide the references details for the in-text citations, or else please remove the citations.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//span[@class='jrnlUncitedRef'][@data-uncited][not(@data-cite-type)]">
+		<function type="action" name="addQuery" data-query-action="uncited-citation">Dear author, your <variable xpath="." /> is missing, please supply in its original format.</function>
+	</styleName> -->
+	<styleName id="f048" name="addQuery" xpath="//div[@class='jrnlAbsGroup'][@data-type='unstructured']/*[1]" data-xml-xpath-condition="//front//subj-group[@subj-group-type='display-channel']/subject[contains(., 'Original Research') or contains(., 'ORIGINAL RESEARCH')]">
+		<function type="action" name="addQuery">Dear author, As per our recently updated house style for Original Research papers, please reformat your abstract as a structured abstract, ie, with headings Background, Methods, Results, Conclusion. Please see https://www.dovepress.com/mutation-analysis-of-beta-thalassemia-in-east-western-indian-populatio-peer-reviewed-article-TACG for an example.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//div[@class='body']//span[@class='jrnlBibRef'][@data-tag-desc='AUTHORYEARREF'][@data-renumbered][1]">
+		<function type="action" name="addQuery">Dear author, the Harvard referencing has been changed to Vancouver style. Please check your citations and references carefully to ensure this has been done correctly. Please confirm.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//p[@class='jrnlRefText'][@data-uncited]">
+		<function type="action" name="addQuery" data-query-action="uncited-reference" data-float-id="data-id">Dear author, Please Cite this <variable xpath=".//span[contains(@class, 'RefAuthor') or contains(@class, 'RefCollaboration')][1]" />, <variable xpath=".//span[@class='RefYear'][1]" /> in the text.</function>
+	</styleName>
+	<!-- <styleName id="f048" name="addQuery" xpath="//p[@class='jrnlFigCaption'][@data-uncited]|//p[@class='jrnlTblCaption'][@data-uncited]">
+		<function type="action" name="addQuery" data-query-action="uncited-float" data-float-id="data-id">Dear author, Please provide an in-text citation for <variable xpath=".//span[@class='label'][1]" />.</function>
+	</styleName> -->
+	<styleName id="f048" name="addQuery" xpath="//p[@class='jrnlFigCaption'][@data-no-caption]|//p[@class='jrnlTblCaption'][@data-no-caption]">
+		<function type="action" name="addQuery" data-query-action="uncited-float" data-float-id="data-id">Dear author, Please provide a caption for <variable xpath=".//span[@class='label'][1]" />.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//p[@class='jrnlFigCaption'][@data-not-valid]|//p[@class='jrnlTblCaption'][@data-not-valid]">
+		<function type="action" name="addQuery" data-query-action="uncited-float" data-float-id="data-id">Dear author, We could not process the currently supplied document of <variable xpath=".//span[@class='label'][1]" />, so please use the "Replace" button and provide a valid table.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//span[@class='jrnlPatterns'][@data-tag-type='OPR'][@data-tagger-patter='tilde'][1]">
+		<function type="action" name="addQuery">Dear author, should ~ be changed to – ?</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//span[@class='jrnlPatterns'][@data-tag-type='UNT'][@data-tagger-patter='mol'][1]">
+		<function type="action" name="addQuery">Dear author, should mol/m<sup>3</sup> be changed to mol/L ?</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//*[@class='jrnlRRH'][string-length(.) > 70]">
+		<function type="action" name="addQuery">Dear author, per house style, short title should be with less than 70 characters long. Please shorten the title.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word1'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word2'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word3'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word4'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word5'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word6'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word7'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//*[contains(@class,'jrnlHead')][ php:functionString('preg_match', '/(table|figure)s?[\s\.\-][0-9]/i', .) > 0 ][1]">
+		<function type="action" name="addQuery">Dear author, the journal style does not allow citing of images or tables in a heading, please move the citation to the text of the paper.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//h1[@class='jrnlRefHead']">
+		<function type="action" name="addQuery">Dear author, please check your references carefully as they have been updated per our online search. Please confirm.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//p[@class='jrnlAff'][@data-aff-reordered='true'][1]">
+		<function type="action" name="addQuery">Dear author, the affiliation have been reordered. Please check.</function>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlCompHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Conflictos de intereses">
+		<description>Change Competing head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlAckHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Agradecimientos">
+		<description>Change Ack head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlFundingHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Financiamiento">
+		<description>Change Funding head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlProtocolHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Registro del protocolo">
+		<description>Change Protocol head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlContribHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Autor&#237;a">
+		<description>Change Contrib head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlEthicsHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Aspectos &#233;ticos">
+		<description>Change Ethics head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlDatasharingHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Declaraci&#243;n de acceso a datos">
+		<description>Change Data sharing head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlProvenanceHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Origen y arbitraje">
+		<description>Change Provence head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlLangSumHead']" data-xml-xpath-condition="//custom-meta[(./meta-name[contains(.,'Article Language')])]//meta-value[.='spanish']" setContent="Idioma del env&#237;o">
+		<description>Change language head</description>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+</styles>

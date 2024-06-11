@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" />
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table|//*[@class='jrnlFootNotePara']" break="true">
+		<function name="blockFloats" includeFootNoteCitation="true"/>
+	</styleName>
+	<styleName id="e048" name="Identify repeated author" xpath="//div[@class='back']">
+		<function name="identifyRepeatedAuthor"/>
+	</styleName>
+	<styleName id="e048" name="Remove asterisk in the reference"  xpath="//div[@class='back']">
+		<function name="removeAsteriskInReference" asterisk-type="single"/>
+	</styleName>
+	<styleName id="e048" name="ParseReferece" xpath="//div[@class='back']">
+		<function name="parseReference"/>
+	</styleName>
+	<styleName id="f048" name="seqHeadLabel" xpath="//div[@class='body']">
+		<function name="seqHeadLabel" label-suffix="." prefix=" "/>
+	</styleName>
+	<styleName id="f048" name="updateEqnId" xpath="//div[@class='body']">
+		<function name="updateEqnId"/>
+	</styleName>
+	<styleName id="f048" name="seqAPPHeadLabel" xpath="//div[@class='body']">
+		<function name="seqAPPHeadLabel" label-type="alpha"/>
+	</styleName>
+	<styleName id="f048" name="seqEqnwithHead" xpath="//div[@class='body']">
+		<function name="seqEqnwithHead"/>
+	</styleName>
+	<!-- Removed parseReferenceAuthors due to author split done in CSL. Hemamalini 01-06-2023 -->
+	<!-- <styleName id="f001" name="parseReferenceAuthors" xpath="//div[@class='back']" project="brill.15367,brill.42895,jhl,phr,xmlconversion">
+		<function name="parseReferenceAuthors"/>
+	</styleName> -->
+	<styleName id="f001" name="referenceGrouping" xpath="//div[@class='back']">
+		<function name="referenceGrouping"/>
+	</styleName>
+	<styleName id="f001" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="f001" name="validateFootNoteCitations" xpath="//div[@class='body']">
+		<function name="validateFootNoteCitations"/>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='back']//p[@class='jrnlRefNotes']" setContent="References marked with an asterisk indicate studies included in the meta-analysis." project="jhl,phr">
+		<description>Set default content for reference note</description>
+	</styleName>
+	<styleName id="f004" name="Funding" xpath="//div[@class='back'][count(//*[@class='jrnlRefNotes']) = 0][count(//p[@class='jrnlRefText'][@data-asterisk]) > 0]" project="jhl,phr">
+		<function name="addComponent" data-xpath="//div[@class='back']//*[@class='jrnlRefHead']" insertType="insertAfter">
+			<p class="jrnlRefNotes"><span class="ins cts-1" data-userid="preediting" data-username="Exeter">References marked with an asterisk indicate studies included in the meta-analysis.</span></p>
+		</function>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlRefHead']" setContent="References">
+		<description>Set Ref Head content to be References</description>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+	<styleName id="f019" xpath="//*[@class='jrnlArtTitle']" name="Article Title" case="sentenceCase">
+		<description>Article title should be in sentence case</description>
+	</styleName>
+	<styleName id="e003" name="Article title: Capitalization (others)">
+		<description>Genuses, proper nouns. Usual stuff.</description>
+	</styleName>
+	<styleName id="f009" xpath="//p[@class='jrnlKeywordPara']" style="jrnlKeyword" name="Key Words">
+		<desciption>change to lowercase if given in keywords</desciption>
+		<function name="lowercase"/>
+	</styleName>
+	<styleName id="e003" style="jrnlHead1" name="Headings" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<detail>1st level [H1]</detail>
+		<desciption> </desciption>
+	</styleName>
+	<styleName id="e004" style="jrnlHead2" name="Headings" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<detail>2nd level [H2]</detail>
+		<desciption></desciption>
+	</styleName>
+	<styleName id="e005" style="jrnlHead3" name="Headings" case="sentenceCase" removeFormatting="true">
+		<detail>3rd level [H3]</detail>
+		<desciption>Title case, not run in, black, larger font </desciption>
+	</styleName>
+	<styleName id="e008" xpath="//p[@class='jrnlFigCaption']//span[@class='label']" name="Figure Label" replaceUsingRegex="/[\;\:\s]+$/">
+		<detail>Label</detail>
+		<function name="addEndChar" endChar="."/>
+		<description>Format: Figure 1.</description>
+	</styleName>
+	<styleName id="e008" xpath="//p[@class='jrnlSchCaption']//span[@class='label']" name="Scheme Label" replaceUsingRegex="/[\;\:\s]+$/">
+		<detail>Label</detail>
+		<function name="addEndChar" endChar="."/>
+		<description>Format: Scheme 1.</description>
+	</styleName>
+	<styleName id="e009" style="jrnlTblCaption" name="Tables" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\;\:\s]+$/">
+		<detail>Label</detail>
+		<function name="addEndChar" endChar="."/> 
+		<desciption>Title 1.</desciption>
+	</styleName>
+	<styleName id="f020" xpath="//span[@class='jrnlTblRef']" name="Table Citations" validate-citation="1">
+		<description>All the Tables should be cited in the text; if not, should be raised as author query.</description>
+	</styleName>
+	<styleName id="e048" name="tableFNOrder" xpath="//div[@class='body']">
+		<function name="tableFNOrder" order="a,b,c,d,e,f,g,h" abbr-order="alpha">
+			<p class="jrnlTblFoot" fn-type="abbrev">
+				<span class="jrnlTblDefItem" data-suffix="; " data-suffix-lastnode=".">
+					<span class="jrnlAbbrevTerm"  data-suffix=". "/>
+					<span class="jrnlFootDefinition"/>
+				</span>
+			</p>
+		</function>
+	</styleName>
+	<styleName id="e052" xpath="//span[@class='partLabel']" name="PartLabel">
+		<description>Remove bold in part label</description>
+		<function name="removeBold"/>
+		<function name="lowercase"/>
+		<function name="addParen"/>
+	</styleName>
+	<styleName id="e053" xpath="//span[@class='partLabel']" name="PartLabel" replaceUsingRegex="/[\.\s]+$/">
+		<description>add parenthsis in part label</description>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='front']//*[contains(.,'Covid') or contains(.,'covid') or contains(.,'COVID')]|//div[@class='body']//*[contains(.,'Covid') or contains(.,'covid') or contains(.,'COVID')]" replaceUsingRegex="/\b(?&lt;![a-z\-])covid(?:\s?)(?:\-?)(?:\s?)19?(?![a-z\-])\b/iu|||COVID-19">
+		<description>Change Covid to all caps</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='THSE']" name="Thousand separator" editing-rule-id="1">
+		<description>Thousand separator</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='HIGH']" name="Highlighted Word" editing-rule-id="1">
+		<description>Highlighted Word</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='ETL']" name="ET AL" editing-rule-id="1">
+		<description>Add italics</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='VAL,UNT']" name="Temperature" editing-rule-id="1">
+		<description>remove space between celcius</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Percentage" editing-rule-id="1">
+		<description>Closed up 80%</description>
+	</styleName>
+	<styleName id="f007" name="addQuery" xpath="//div[@class='jrnlAbsGroup']//p[@class='jrnlAbsPara'][1]">
+		<function type="action" name="addQuery">Abstract should be unstructured and only one paragraph is allowed</function>	
+	</styleName>
+	<styleName id="e029" xpath="//p[@class='jrnlAff']//*[@class='jrnlCountry'][contains(.,'China') or contains(.,'china') or contains(.,'CHINA')]" replaceUsingRegex="/\b(?&lt;![a-z\-])china(?:\s?)(?:\-?)(?:\s?)(?![a-z\-])\b/iu|||People's Republic of China">
+		<description>Change China to People's Republic of China</description>
+	</styleName>
+	<styleName id="e015" xpath="//span[@data-tag-desc='VAR,OPR,VAL,OPRS,VALS,UNT']" name="P-value" editing-rule-id="1">
+		<description>Change P value and N value</description>
+	</styleName>
+	<styleName id="e016" xpath="//span[@data-tag-desc='VAL,UNT,OPR,VALS,UNTS']" name="hyphen to endash" editing-rule-id="1">
+		<description>Change hyphen to endash</description>
+	</styleName>
+	<styleName id="e017" xpath="//span[@data-tag-desc='VAL,RNGS,RNGC,RNGE,UNT']" name="endash" editing-rule-id="1">
+		<description>Change hyphen to endash</description>
+	</styleName>
+	<styleName id="f050" xpath="//span[@data-tag-desc='APP,PRE,PREP,RNG,SUF,SREP,UNT']" name="SI Units" editing-rule-id="1">
+		<description>Range Should have en dash</description>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='front']//*[contains(.,'ad libitum') or contains(.,'de novo') or contains(.,'versus')]|//div[@class='body']//*[contains(.,'ad libitum') or contains(.,'de novo') or contains(.,'versus')]">
+		<description>Remove italics</description>
+		<function name="removeItalics"/>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='front']//*[contains(.,'e.g.,') or contains(.,'i.e.,')]|//div[@class='body']//*[contains(.,'e.g.,') or contains(.,'i.e.,')]">
+		<description>Remove italics</description>
+		<function name="removeItalics"/>
+	</styleName>
+	<styleName id="e046" name="Double quote" xpath="//span[@data-tag-desc='LQUOTE']" editing-rule-id="1">
+		<description>Always use single quote</description>
+	</styleName>
+	<styleName id="e046" name="Double quote" xpath="//span[@data-tag-desc='RQUOTE']" editing-rule-id="1">
+		<description>Always use single quote</description>
+	</styleName>
+	<styleName id="f009" name="removeNode" xpath="//*[@class='jrnlContribPara']|//*[@class='jrnlContribHead']">
+		<function name="addDelNode" />
+	</styleName>
+	<styleName id="f009" name="removeNode" xpath="//*[@class='jrnlRRH']">
+		<function name="addDelNode" />
+	</styleName>
+	<styleName id="f007" name="unwrap" xpath="//span[@class='jrnlSupplRef']|//span[@class='jrnlUncitedRef'][@data-tag-desc='SUPPLFTREF']|//span[@class='jrnlUncitedRef'][@data-tag-desc='SUPPLREF']">
+		<function name="unwrapTag"/>
+	</styleName>
+	<styleName id="f007" name="addSuperscript" xpath="//*[@class='jrnlFootNote']//span[@class='label']">
+		<function name="addSuperscript"/>
+	</styleName>
+	<styleName id="f007" name="addSuperscript" xpath="//*[@class='jrnlFigCaption']//span[@class='partLabel']">
+		<function name="lowercase"/>
+	</styleName>
+	<styleName id="f007" name="addSuperscript" xpath="//*[@class='jrnlFigCaption']//span[@class='partLabel']">
+		<function name="addItalics"/>
+	</styleName>
+	<styleName id="f048" name="seqEqnwithHead" xpath="//div[@class='body']">
+		<function name="seqEqnwithHead" data-action="replaceIDS" data-prefix="(" data-suffix=")"/>
+	</styleName>
+	<styleName id="f048" name="updateTheme" xpath="//div[@class='jrnlAbsGroup']">
+		<function name="updateTheme"/>
+	</styleName>
+	<styleName id="e032" xpath="//span[@data-tag-desc='HYPTOMIN,VAL']" name="10 %" editing-rule-id="1">
+		<description>replace hyphen with minus</description>
+	</styleName>
+	<styleName id="f053" name="removeNode" data-xml-xpath-condition="//front[count(//subj-group[@subj-group-type = 'display-channel'])>0]" xpath="//div[@class='front']/p[@class='jrnlArtType']">
+		<function name="markDeleted"/>
+	</styleName>
+</styles>

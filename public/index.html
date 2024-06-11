@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Updater</title>
+    <style>
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+            background: white;
+        }
+
+        #drop-area.highlight {
+            border-color: purple;
+        }
+
+        .my-form {
+            margin-bottom: 10px;
+        }
+
+        #fileElem {
+            display: none;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>XML Updater</h1>
+    <button onclick="window.location.href='/view-excel'">See the Excel</button>
+    <button onclick="updateXml()">Update the XML</button>
+    <div id="drop-area">
+        <form class="my-form">
+            <p>Drag and drop an Excel file here or</p>
+            <input type="file" id="fileElem" accept=".xlsx,.xls">
+            <label class="button" for="fileElem">Select a file</label>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script>
+        let dropArea = document.getElementById('drop-area');
+        let fileElem = document.getElementById('fileElem');
+
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlight(e) {
+            dropArea.classList.remove('highlight');
+        }
+
+        // Handle dropped files
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let files = dt.files;
+
+            handleFiles(files);
+        }
+
+        // Handle selected files from file input
+        fileElem.addEventListener('change', (e) => {
+            handleFiles(fileElem.files);
+        });
+
+        function handleFiles(files) {
+            ([...files]).forEach(uploadFile);
+        }
+
+        function uploadFile(file) {
+            if (!file.name.endsWith('.xls') && !file.name.endsWith('.xlsx')) {
+                alert('Please upload an Excel file.');
+                return;
+            }
+
+            // Process the Excel file here
+            console.log(file);
+
+            let formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    alert('File uploaded successfully');
+                } else {
+                    alert('File upload failed');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('File upload failed');
+            });
+        }
+
+    </script>
+</body>
+
+</html>

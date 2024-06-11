@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="e001" style="jrnlArtTitle" name="Article title" case="sentenceCase">
+		<description>TItle should be Sentence case</description>
+	</styleName>
+	<styleName id="e001" style="jrnlArtTitle" name="Article title" replaceUsingRegex="/[;]/|||:===/[\.\;\:\s]+$/">
+		<description>"Genus names should be given in full at the first instance in the title. And it should be in sentence case with italicized (Eg. Staphylococcus aureus)"</description>
+	</styleName>
+	<styleName id="e001" name="Article title" type="Manual">
+		<description>Semicolons are normally better changed to colons.</description>
+	</styleName>
+	<styleName id="e005" name="Article title: Style" type="Manual">
+		<description>As author provided, no full stops (ie if full first name or initials, leave as author provides)</description>
+	</styleName>
+	<styleName id="e005" name="Article title: Style" type="Manual">
+		<description>Numbered subtitles are not allowed for pairs/series of papers unless all the papers in the set are submitted for simultaneous publication.</description>
+	</styleName>
+	<styleName id="e006" name="Authors" type="Manual">
+		<description>Style: As author provided, use full stops (ie if full first name or initials, leave as author provides), initials spaced (e.g. Gerald F. L. Bills1)</description>
+	</styleName>
+	<styleName id="e006" name="Authors: Affiliation designators" type="Manual">
+		<description>Affiliation designators should appear in numbers (superscript), in sequence, comma separated  with no space between comma and number if there is more than one affiliation. Use comma as a separator for author names (e.g. Yongqiang H. Tian6,7, Bo Liu8 )</description>
+	</styleName>
+	<styleName id="e006" name="Affiliation designators" type="Manual">
+		<description>Affiliation: Superscript number precedes each new address. Each address must be in a separate paragraph, even if only the department differs</description>
+	</styleName>
+	<styleName id="e006" name="Affiliations" type="Manual">
+		<description>Addresses may be either in English or in other language; the country name must always be given in English (e.g. Spain, not España)</description>
+	</styleName>
+	<styleName id="e006" name="Affiliations" type="Manual">
+		<description>England, Wales, Scotland and Northern Ireland can be left as such if the author used, but should not be added. England, Wales, Scotland and Northern Ireland must always be followed by UK (not United Kingdom)</description>
+	</styleName>
+	<styleName id="e006" name="Affiliations" type="Manual">
+		<description>"Change United States of America to USA
+					change United Kingdom to UK
+					change China to PR China
+					Federal Republic of Germany to Germany
+					Taiwan to Taiwan, ROC
+					Korea to Republic of Korea
+					SAr to Hong Kong, SAR"</description>
+	</styleName>
+	<styleName id="e006" name="Affiliations" type="Manual">
+		<description>Commas are not used between postcodes and the geographical entity that they refer to, or between street numbers and street names</description>
+	</styleName>
+	<styleName id="e006" name="Affiliations" type="Manual">
+		<description>Order of affiliation: Center, Laboratory, Department, Faculty, Institution, School, University, City, Country. Affiliations without departments are allowed</description>
+	</styleName>
+	<styleName id="e006" name="Present address" type="Manual">
+		<description>Present address: is in bold but the preceding symbol is not (and has no space after it). There should be a full stop at the end of the address.</description>
+	</styleName>
+	<styleName id="e003" style="jrnlAbsTitle" name="Headings level 1" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Remove end punctuation</description>
+	</styleName>
+	<styleName id="e006" name="Footnotes" type="Manual">
+		<description>"The footnotes are tagged by symbols. Hierarchy of symbols : †, ‡, §, ¶, ||. The symbols (which are not superscripts) follow any superscript numbers (e.g. Bo Liu8†)"</description>
+	</styleName>
+	<styleName id="e006" name="Abbreviations" type="Manual">
+		<description>The Abbreviations: label is in bold. Non-standard abbreviations (see journal’s Information for Authors) should normally be defined here. 
+If the author has not supplied a list of abbreviations, it should be compiled by the copy-editor.
+The abbreviations are should arranged alphabetically.
+If there is only one abbreviation, change ‘Abbreviations’ to ‘Abbreviation’ at the beginning of the footnote.</description>
+	</styleName>
+	<styleName id="e015" name="General style: US or UK English consistent throughout individual article" type="Manual">
+		<description>Consistency to be determined based on the total number of US/UK words used in the article.</description>
+	</styleName>
+	<styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" initials="closedup,withperiods"/>
+	</styleName>
+	<styleName id="e004" style="jrnlHead2" name="Headings level 2" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence case</description>
+	</styleName>
+	<styleName id="e005" style="jrnlHead3" name="Headings level 3" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence case</description>
+	</styleName>
+	<styleName id="e006" style="jrnlHead4" name="Headings level 4" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence case</description>
+	</styleName>
+	<styleName id="e006" style="jrnlHead5" name="Headings level 5" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence case</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@data-tag-desc='HEADLABEL']" editing-rule-id="1">
+		<description>Remove head label</description>
+	</styleName>
+	<styleName id="e003" case="allCaps" style="jrnlHead1" name="Headings level 1" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence case</description>
+	</styleName>
+	<styleName id="e006" style="jrnlAckHead" name="Acknowledgement heading" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence case</description>
+	</styleName>
+	<styleName id="f007" name="Author Degree" xpath="//*[@class='jrnlAuthors']//*[@class='jrnlDegrees']">
+		<function name="markDeleted" />
+		<description>Mark author degree as deleted</description>
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table" break="true">
+		<function name="blockFloats"/>
+	</styleName>
+	<styleName id="e013" xpath="//p[@class='jrnlTblCaption' or @class='jrnlBoxCaption']" case="sentenceCase" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>remove dot at end of captions</description>
+	</styleName>
+	<styleName id="e008" xpath="//p[@class='jrnlFigCaption']//span[@class='label']" name="Figure Label" validate-citation="1">
+		<description>Format: Fig. 1.</description>
+	</styleName>
+	<styleName id="e012" xpath="//p[@class='jrnlFigCaption']">
+		<function name="addEndChar" endChar="."/>
+		<description>Add dot at end of captions</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='NUM,TIME']" editing-rule-id="1">
+		<description>Number in words to digit</description>
+	</styleName>
+	<styleName id="e010" xpath="//span[@class='jrnlFigRef']" name="Figure Citations" validate-citation="1">
+		<description>Capital F e.g. see Fig. 2</description>
+	</styleName>
+	<styleName id="e011" xpath="//span[@class='jrnlFigRef']" name="Figure supplements/Source data Citations" validate-citation="1">
+		<description>First F capitalised e.g. see Figure 2—figure supplement 1,  Figure 2—source data 1</description>
+	</styleName>
+	<styleName id="e012" xpath="//p[@class='jrnlTblCaption']//span[@class='label']" name="Table Label" validate-citation="1">
+		<description>Format: Table 1.</description>
+	</styleName>
+	<styleName id="f002" xpath="//table/thead/tr/td/*|//table/thead/tr/th/*" name="Table Head" case="sentenceCase">
+		<description>Table head should be in sentence case</description>
+	</styleName>
+	<styleName id="e013" xpath="//span[@class='jrnlTblRef']" name="Table Citations" validate-citation="1">
+		<description>Capital T e.g. see Table 1</description>
+	</styleName>
+	<styleName id="e014" xpath="//span[@class='jrnlBibRef']" name="Reference citation, General Style" validate-citation="1">
+		<description>First author surname followed by et al. followed by comma then year of publication, all in brackets e.g. (Smith et al., 1996)</description>
+	</styleName>
+	<styleName id="e015" xpath="//span[@class='jrnlBibRef']" name="Reference citation, Single author" validate-citation="1">
+		<description>(Gabriel, 2000)</description>
+	</styleName>
+	<styleName id="e016" xpath="//span[@class='jrnlBibRef']" name="Reference citation, Two authors" validate-citation="1">
+		<description>(Mathes and Severa, 2004)</description>
+	</styleName>
+	<styleName id="e017" xpath="//span[@class='jrnlBibRef']" name="Reference citation, In press" validate-citation="1">
+		<description>(Johnson et al., in press)</description>
+	</styleName>
+	<styleName id="e020" name="Hyphenation: Em dash">
+		<description>Used in figure supplements eg Figure 1—figure supplement 1.</description>
+	</styleName>
+	<styleName id="e021" name="Commas: Serial commas (Oxford comma)" type="Manual">
+		<description>As author provides as long as consistent in article.</description>
+	</styleName>
+	<styleName id="e023" name="Italicization: Genus and species italicised, follow author in other cases" type="Manual">
+		<description>Capital with full stop, italics, e.g. E. coli. Genus should be provided on first use in main text and thereafter abbreviated to first letter and full stop. If only Genus is provided, still use italics [this is applicable for Table and Figure captions). If both genus and species are given, use only abbreviated genus names with species in tables and figures (exceptions: For S. Typhi, S. Typhimurium, Drosophila, and Arabidopsis add an author query as to whether some or all instances should be Roman or italicised, but we should not autocorrect to italic (since on some occasions the change will be wrong - genus or species).</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='VAL,UNT']" name="Temperature" editing-rule-id="1">
+		<description>change seconds or second to s</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Percentage" editing-rule-id="1">
+		<description>Change minute to min</description>
+	</styleName>
+	<styleName id="e019" xpath="//span[@data-tag-desc='VAL,UNT']" name="SI Units" editing-rule-id="1">
+		<description>1 week, 2 weeks</description>
+	</styleName>
+	<styleName id="e019" xpath="//span[@data-tag-desc='VAL,UNT']" name="SI Units" editing-rule-id="1">
+		<description>2 m not 2 metres</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Volume" editing-rule-id="1">
+		<description>Change mg/ml (etc.) to mg ml^-1 (etc.)</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Percentage" editing-rule-id="1">
+		<description>change volume to vol</description>
+	</styleName>
+	<styleName id="f007" name="unwrap" xpath="//span[@class='jrnlAppRef']">
+		<function name="unwrapTag"/>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Volume" editing-rule-id="1">
+		<description>change volumes to vols</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Weight" editing-rule-id="1">
+		<description>And do not add 2unit spaces on present of "mol%"</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Magnification" editing-rule-id="1">
+		<description>change hours or hour to h</description>
+	</styleName>
+	<styleName id="e020" xpath="//span[@data-tag-desc='APP,PPER,RNG,SPER,UNT']" name="Repetition of units" editing-rule-id="1">
+		<description>To indicate ranges of numbers, e.g. 25–40</description>
+	</styleName>
+	<styleName id="e021" xpath="//span[@data-tag-desc='VAL,RNGS,RNGC,RNGE,UNT']" name="Range" editing-rule-id="1">
+		<description>En-dashes for ranges, 30–90% not 30%–90%</description>
+	</styleName>
+	<styleName id="e021" xpath="//span[@data-tag-desc='VAR,OPR,VAL,OPRS,VALS,UNT']" name="Probability" editing-rule-id="1">
+		<description>p lowercase, roman, leading zero, p=0.01.</description>
+	</styleName>
+	<styleName id="e023" xpath="//span[@data-tag-desc='APP,PRE,PREP,RNG,SUF,SREP,UNT']" name="Spacing" editing-rule-id="1">
+		<description>Space around operational symbols, d = 1.278, η = 0.0023.</description>
+	</styleName>
+	<styleName id="e024" xpath="//span[@data-tag-desc='PER,VAL,UNT']" name="Spacing" editing-rule-id="1">
+		<description>Space between value and percentage, 20 (30%)</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='SUPO,SUPN']" name="Temperature" editing-rule-id="1">
+		<description>change seconds or second to s</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='SUPP,SUPC,SUPS']" name="Temperature" editing-rule-id="1">
+		<description>change seconds or second to s</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='SUPC']" name="Temperature" editing-rule-id="1">
+		<description>change seconds or second to s</description>
+	</styleName>
+	<styleName id="e026" xpath="//span[@data-tag-desc='AMP']" name="Use of &amp;" editing-rule-id="1">
+		<description>No ‘&amp;’ allowed, use ‘and’ throughout</description>
+	</styleName>
+	<styleName id="e027" xpath="//span[@data-tag-desc='SNUM']" name="Numbers lower than 10" editing-rule-id="1">
+		<description>Spell out unless with unit, in which case numerals</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='ORDI']" name="Ordinals" editing-rule-id="1">
+		<description>only ordinals first through ninth spelled out, 10th onwards</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='FLD']" name="Fold words" editing-rule-id="1">
+		<description>Whole numbers: fourfold; fractions: 2.5-fold</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='HYPTOMIN,VAL']" name="Fold words" editing-rule-id="1">
+		<description>Whole numbers: fourfold; fractions: 2.5-fold</description>
+	</styleName>
+
+	<styleName id="e029" xpath="//span[@data-tag-desc='FNW']" name="Foreign Words" editing-rule-id="1">
+		<description>Remove italics</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='EGIE']" name="Foreign Words" editing-rule-id="1">
+		<description>Remove italics</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='SMCP']" name="Foreign Words" editing-rule-id="1">
+		<description>Remove italics</description>
+	</styleName>
+	<styleName id="e048" name="tableFNOrder" xpath="//div[@class='body']" removeFormatting="sup">
+		<function name="tableFNOrder" order="*,†,‡,§,||,¶,#" abbr-order="alpha"/>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='body']" name="Linked footnote" >
+		<description>Linked footnote to general footnote</description>
+		<function name="linkedFnToGeneralFn"/>
+	</styleName>
+	<styleName id="e048" name="Table footnote" xpath="//*[@class='jrnlTblFoot']//*[@data-tag-type='DEFSEP']" setContent=", ">
+		<description>Change abbrev footnote innerpunctuation</description>
+	</styleName>
+	<styleName id="e048" name="Table footnote" xpath="//*[@class='jrnlTblFoot']//*[@data-tag-type='DEFEND']" setContent="; ">
+		<description>Change abbrev footnote End punctuation</description>
+	</styleName>
+	<styleName id="e026" name="Abbreviation" type="Manual">
+		<description>Lower case with full stops, (e.g., i.e.). Exception: etc (e.g., i.e. and etc only allowed in parentheses; in main text must spell out (for example, that is, and so on)) Do not automatically change that is to i.e. in parentheses during preediting.</description>
+	</styleName>
+	<styleName id="e027" name="Parentheses" type="Manual">
+		<description>Round with square if within the round brackets ([]).</description>
+	</styleName>
+	<styleName id="e028" name="Geography: United States" type="Manual">
+		<description>In text as author provides (US or, USA, United States, no full stops). Author affils - leave as provided in metadata, United States.</description>
+	</styleName>
+	<styleName id="e029" name="Geography: United Kingdom" type="Manual">
+		<description>In text as author provides (UK or United Kingdom, no full stops). Author affils - leave as provided in metadata, United Kingdom [this is applicable in affiliation also].</description>
+	</styleName>
+	<styleName id="e030" name="Geography: US States" type="Manual">
+		<description>As author provides. In manufacturer details use 2 letter state code (eg TX, no full stops).</description>
+	</styleName>
+	<styleName id="e031" name="Time and dates: Date" type="Manual">
+		<description>"UK version 19 August 1995; US version August 19, 1995. To be used according to style of article – US or UK English.  Not '97".</description>
+	</styleName>
+	<styleName id="e032" name="Source of materials: Style" type="Manual">
+		<description>(Product; company, city, country) For Unites States include state as well use 2 letter state code (eg TX, no full stops).</description>
+	</styleName>
+	<styleName id="e033" name="Source of materials: Others" type="Manual">
+		<description>Delete trademark, registered and copyright symbols.</description>
+	</styleName>
+	<styleName id="e034" name="Abbreviation: First use" type="Manual">
+		<description>Define, with abbreviation in brackets. Redefine if abbreviation used in abstract, figure, tables, etc (ie anything with it's own DOI).</description>
+	</styleName>
+	<styleName id="e035" name="Abbreviation: In Figures" type="Manual">
+		<description>Allowed. Define in legend. Redefine previously used abbreviations in legends. e.g., i.e. and etc allowed in abbreviated form in legends.</description>
+	</styleName>
+	<styleName id="e036" name="Abbreviation: In Table" type="Manual">
+		<description>Allowed but define in footnotes.</description>
+	</styleName>
+	<styleName id="e037" name="Abbreviation: Latin abbreviations" type="Manual">
+		<description>Lower case with full stops, (e.g., i.e.). Exception: etc (e.g., i.e. and etc only allowed in parentheses; in main text must spell out (for example, that is, and so on)). Do not automatically change that is to i.e. in parentheses during preediting.</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='THSE']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='ETL']" name="ET AL" editing-rule-id="1">
+		<description>Add italics</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='PRIME']" name="PRIME" editing-rule-id="1">
+		<description>Add italics</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='HIGH']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='SPELL'][not( substring(., string-length(.) - 2)='ize' or substring(., string-length(.) - 3)='izes' or substring(., string-length(.) - 3)='ized' or substring(., string-length(.) - 2)='iza' or substring(., string-length(.) - 6)='ization' or substring(., string-length(.) - 3)='izae' or substring(., string-length(.) - 4)='izaes' or substring(., string-length(.) - 4)='izing' )]" name="SPELL" editing-rule-id="1">
+		<description>Spell check</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//table//thead//span[@data-tag-desc='TBLHIGH']" editing-rule-id="1">
+		<description>To change highlighted spelling in table</description>
+	</styleName>
+	<styleName id="e043" name="Table footnote" xpath="//p[@class='jrnlTblFoot']//span[@data-tag-desc='TBLFNHIGH']" editing-rule-id="1">
+		<description>To change highlighted spelling in table foot note</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='PREF,SUFF']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='DNAP,HYP,DNAS']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e044" name="Float Number Format" xpath="//span[@data-tag-desc='FLOAT']" editing-rule-id="1">
+		<description>Always use leading zero (ie 0.01)</description>
+	</styleName>
+	<styleName id="e045" name="Number Comparison" xpath="//span[@data-tag-desc='COMP']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e046" name="Double quote" xpath="//span[@data-tag-desc='LQUOTE']" editing-rule-id="1">
+		<description>Always use single quote</description>
+	</styleName>
+	<styleName id="e046" name="Double quote" xpath="//span[@data-tag-desc='RQUOTE']" editing-rule-id="1">
+		<description>Always use single quote</description>
+	</styleName>
+	<styleName id="e047" name="Month" xpath="//span[@data-tag-desc='MON']" editing-rule-id="1">
+		<description>Do not abbreviate month, e.g. February.</description>
+	</styleName>
+	<styleName id="e048" name="Symbols" xpath="//span[@data-tag-desc='SYM']" editing-rule-id="1">
+		<description>Registration, trademark symbol should be removed</description>
+	</styleName>
+	<styleName id="e046" xpath="//span[@data-tag-desc='ETLDOT']" name="ET AL" editing-rule-id="1">
+		<description>Remove dot</description>
+	</styleName>
+	<styleName id="e012" xpath="//p[@class='jrnlFigCaption']">
+		<function name="removeBold" />
+		<description>To remove bold</description>
+	</styleName>
+	<styleName id="f017" xpath="//span[@class='partLabel']" name="PartLabel" removeFormatting="true">
+		<description>Part label mention in figure caption must in uppercase</description>
+		<function name="lowercase"/>
+	</styleName>
+	<styleName id="e046" name="Handling hyphens in Tables" xpath="//span[@data-tag-desc='HTMN']">
+		<condition>
+			<if xpath="ancestor::div[@class='jrnlTblBlock']//td[ php:functionString('preg_match', '#^\s?\+\s?$#', .) > 0 ]" replace="&#x2212;"></if>
+			<else replace="&#x2013;"></else>
+		</condition>
+	</styleName>
+	<styleName id="e048" name="ParseReferece" xpath="//div[@class='back']">
+		<function name="parseReference"/>
+	</styleName>
+	<styleName id="e048" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="e048" name="Add Online Text" xpath="//div[@class='body']//span[@data-tag-desc='SUPPLFIGREF'][1]" break="true">
+		<function name="onlineSupplement"/>
+	</styleName>
+	<styleName id="e048" name="Add Online Text" xpath="//span[@data-tag-desc='SUPPLFIGREF']">
+		<function name="DOMRemove"/>
+	</styleName>
+	<styleName id="f007" name="Funding Para" xpath="//*[@class='jrnlFundingPara'][1]">
+		<function name="mergeNode" nodexpath="//*[@class='jrnlFundingPara'][position()>1]" attribute="class=jrnlAckPara;class-name=AckPara" track-change-ins="true"/>
+		<description>merge all funding page to one page</description>
+	</styleName>
+	<styleName id="f003" name="Confilict" xpath="//div[@class='back'][count(//*[@class='jrnlConflictHead']) = 0]" data-xml-xpath-condition="//article-meta//author-notes[count(fn[@fn-type='conflict'])=0]">
+		<function name="addComponent" data-xpath="//div[@class='front']">
+			<div class="jrnlFNGroup" data-fn-type="conflict" data-label="Competing interests" ><h1 class="jrnlFNHead">Conflicts of interest</h1><p class="jrnlFNPara">The author(s) declare that there are no conflicts of interest.</p></div>
+		</function>
+	</styleName>
+	<styleName id="f004" name="Funding" xpath="//div[@class='back'][count(//*[@class='jrnlFundingHead']) = 0]" data-xml-xpath-condition="//article-meta[count(//funding-group/funding-statement)=0]">
+		<function name="addComponent" data-xpath="//div[@class='front']">
+			<div class="jrnlFNGroup" data-fn-type="funding" data-label="Funding Information"><h1 class="jrnlFNHead">Funding Information</h1><p class="jrnlFNPara">The author(s) received no specific grant from any funding agency.</p></div>
+		</function>
+	</styleName>
+	<!--styleName id="f007" name="Funding Para" xpath="//*[@class='jrnlFundingPara']|//*[@class='jrnlCompPara']|//*[@class='jrnlContribPara']">
+		<function name="moveNode" nodexpath="//*[@class='jrnlAckPara'][last()]" attribute="class=jrnlAckPara;class-name=AckPara" track-change-ins="true"/>
+		<description>Move funding info( i.e., Para) into Acknowledgment section as AckPara</description>
+	</styleName>
+	<styleName id="f007" name="Funding,Comp and Contrib" xpath="//*[@class='jrnlFundingHead']|//*[@class='jrnlFundingPara']|//*[@class='jrnlCompHead']|//*[@class='jrnlCompPara']||//*[@class='jrnlContribHead']|//*[@class='jrnlContribPara']">
+		<function name="markDeleted" />
+		<description>Mark funding, Comp info as deleted since, its moved to ack. section</description>
+	</styleName-->
+	<styleName id="f009" name="addQuery" xpath="//div[@class='front']//*[@class='jrnlAuthors'][1]">
+		<function type="action" name="addQuery">Please check that the author names and affiliation details are correct.</function>
+	</styleName>
+	<styleName id="f009" name="addQuery" xpath="//div[@class='body']/p[not(@class='jrnlDeleted') and not(@data-track='del')][1][count(//div[@class='back']//*[@class='jrnlAbbrevHead'])=0]">
+		<function type="action" name="addQuery">Please add an abbreviations list for your article using the "Add abbreviation" option.</function>
+	</styleName>
+	<styleName id="f009" name="addQuery" xpath="//h1[contains(.,'DATA SUMMARY')][//p//span[@class='jrnlExtLink'][contains(.,'figshare')]]">
+		<function type="action" name="addQuery">It has been noted that your Supplementary Material has been uploaded to figshare. If your supplementary material has been uploaded to the Microbiology Society figshare account and changes to the files are required, please upload any updated files in response to this query.</function>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+	<styleName id="f008" name="addQuery" xpath="//div[@class='jrnlTblBlock'][count(//p[@class='jrnlTblFoot'][@fn-type='abbrev']) = 0]">
+		<function type="action" name="addQuery" data-xpath="//div[@class='front']//*[@class='jrnlAbsHead']|//div[@class='front']/p[last()]">Please compile abbreviation list for this article.</function>
+		<description>Query for abbreviation</description>
+	</styleName>
+	<styleName id="e012" xpath="//p[@class='jrnlAbsTitle']">
+		<function name="addEndChar" endChar="."/>
+		<description>Add dot at end of captions</description>
+	</styleName>
+	<styleName id="f010"  name="addQuery" xpath="//p//span[@data-match='Supplementary Material can']">
+		<function type="action"  name="addQuery">It has been noted that your Supplementary Material has been uploaded to figshare. If your supplementary material has been uploaded to the Microbiology Society figshare account and changes to the files are required, please upload any updated files in response to this query.</function>
+	</styleName>
+	<styleName id="f010"  name="addQuery" xpath="//div[@class='front']/h1[@class='jrnlArtTitle'][1]">
+			<function type="action"  name="addQuery">This journal has recently changed its design to a single-column format. Please check the display of the figures throughout the PDF proof, to ensure they have been sized appropriately for their content and readability in the new format.</function>
+	</styleName>
+</styles>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="e001" xpath="//*[@class='jrnlBlockQuote']//span[@class='jrnlPatterns']">
+		<function name="DOMRemove" />
+		<description>Remove all tagging info inside block quote by unwrapping its children nodes</description>
+	</styleName>
+	<styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" initials="spaced,withoutperiods"/>
+	</styleName>
+	<styleName id="f019" xpath="//*[@class='jrnlArtTitle']" name="Article Title" case="sentenceCase">
+		<description>Article title should be in sentence case</description>
+	</styleName>
+	<!-- <styleName id="f007" name="Abstract" xpath="//div[@class='jrnlAbsGroup'][@data-type='structured']/*[@class='jrnlAbsHead']">
+		<function name="markDeleted" />
+	</styleName> -->
+	<styleName id="f007" name="Abstract" xpath="//div[@class='jrnlAbsGroup']">
+		<function name="addAbsHead" content="Abstract" />
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='front']//*[@class='jrnlAbsTitle']" removeFormatting="true">
+		<description>Remove formating from abstract title</description>
+	</styleName>	
+	<styleName id="e029" xpath="//div[@class='front']//*[@class='jrnlAbsTitle'][contains(text(),'Design') or contains(text(),'design') or contains(text(),'Design and Setting') or contains(text(),'design and setting')]" replaceUsingRegex="/^(Design(?:\sand\ssetting)?)([.:])?\s*$/iu|||Design &amp; setting">
+		<description>Change abstract title</description>
+	</styleName>	
+	<styleName id="e029" xpath="//div[@class='front']//*[@class='jrnlAbsTitle'][contains(text(),'Methods') or contains(text(),'methods')]|//*[contains(@class,'jrnlHead')][contains(text(),'Methods') or contains(text(),'methods')]" replaceUsingRegex="/^(methods)([.:])?\s*$/iu|||Method">
+		<description>Change abstract title</description>
+	</styleName>	
+	<styleName id="f007" name="Abstract Title" xpath="//*[@class='jrnlAbsTitle']" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/u">
+		<description>Abstract title should be in Roman and remove end punc.</description>
+	</styleName>
+	<styleName id="f010" name="Headings" xpath="//*[contains(@class,'jrnlHead')]" case="sentenceCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Sentence Case</description>
+	</styleName>
+	<styleName id="e021" xpath="//span[@data-tag-desc='VAL,RNGS,RNGC,RNGE,UNT']" name="Range" editing-rule-id="1">
+		<description>En-dashes for ranges, 30–90% not 30%–90%</description>
+	</styleName>
+	<styleName id="f050" xpath="//span[@data-tag-desc='APP,PRE,PREP,RNG,SUF,SREP,UNT']" name="SI Units" editing-rule-id="1">
+		<description>Range Should have en dash</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='VAL,UNT']" name="Percentage" editing-rule-id="1">
+		<description>Closed up 80%</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='HYPTOMIN,VAL']" name="Value with Sign " editing-rule-id="1">
+		<description>value with signs: eg, -10</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='ABBRDEF,ABBREQL,ABBRVAL']" name="Abbreviation " editing-rule-id="1">
+		<description>Tag abbreviations</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='FNW']" name="Foreign Words" editing-rule-id="1">
+		<description>Remove italics</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='EGNR']" name="Examples" editing-rule-id="1">
+		<description>e.g., i.e, to eg, and ie,</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='IENR']" name="Examples" editing-rule-id="1">
+		<description>e.g., i.e, to eg, and ie,</description>
+	</styleName>
+	<styleName id="e030" xpath="//span[@data-tag-desc='EGIEPR']" name="Examples" editing-rule-id="1">
+		<description>e.g., i.e, to eg, and ie,</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='SUPO,SUPN']" name="Superscript Formatting" editing-rule-id="1">
+		<description>change - to endash</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='VERSUS']" name="Versus to vs" editing-rule-id="1">
+		<description>change versus/vs. to vs</description>
+	</styleName>
+	<styleName id="e030" xpath="//*[@data-tag-desc='VAR,OPR,VAL,OPRS,VALS,UNT']" editing-rule-id="1">
+		<description>Change tilde to  when tagged as operator</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='SNUM'][not(ancestor::table)]" name="Ordinals" editing-rule-id="1">
+		<description>only ordinals one to eleven spelled out</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='ORDI']" name="Ordinals" editing-rule-id="1">
+		<description>only ordinals one to eleven spelled out</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='THSE']" name="Thousand separator" editing-rule-id="1">
+		<description>Thousand separator</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='HIGH']" name="Highlighted Word" editing-rule-id="1">
+		<description>Highlighted Word</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='HYPTONDASH']" name="Hyphen to ndash" editing-rule-id="1">
+		<description>Hyphen to ndash</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='HYPTOMIN']" name="Hyphen to ndash" editing-rule-id="1">
+		<description>Hyphen to ndash</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='ABBRV']" name="Abbreviations" editing-rule-id="1">
+		<description>Abbreviation Replacer</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='SPELL']" name="ET AL" editing-rule-id="1">
+		<description>Spell check</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='ETL']" name="ET AL" editing-rule-id="1">
+		<description>Remvoe italics</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='ETLDOT']" name="ETALDOT" editing-rule-id="1">
+		<description>Remvoe ETLDOT</description>
+	</styleName>
+	<styleName id="e029" xpath="//div[@class='body']//*[contains(@class,'jrnlHead')][ php:functionString('preg_match', '/^([\d\.]+[\s\.])(?=\p{Lu}+)/u', .) > 0 ]">
+		<function name="tagContent" tag-regex="/^([\d\.]+[\s\.])(?=\p{Lu}+)/u" attribute="data-tag-desc='HEADLABEL'];data-tag-type='HEADLABEL'];data-replace='delete';data-pattern='delete'"/>
+		<description>Tag head label</description>
+	</styleName>	
+	<styleName id="e029" xpath="//*[@data-tag-desc='HEADLABEL']" editing-rule-id="1">
+		<description>Remove head label</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='PROFTITLE']" name="PROF TITLE" editing-rule-id="1">
+		<description>PROF TITLE should not end with dot(.)</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='LSQUOTE']" name="Qoute" editing-rule-id="1">
+		<description>Single Quote to Double Quote</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='RSQUOTE']" name="Qoute" editing-rule-id="1">
+		<description>Single Quote to Double Quote</description>
+	</styleName>
+	<styleName id="e051" xpath="//span[@data-tag-desc='SPECWORD']" name="SPECWORD" editing-rule-id="1">
+		<description>To add query to Specific words</description>
+	</styleName>
+	<styleName id="f049" name="DOI" xpath="//span[@data-tag-desc='DOI']">
+		<function name="addDOILink"/>   <!-- need function to add DOI link -->
+	</styleName>
+	<styleName id="e029" xpath="//span[@class='jrnlSupplRef']">
+		<function name="unwrapTag"/>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlAckHead']" setContent="Acknowledgments">
+		<description>Set .jrnlAckHead content to be Acknowledgments</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlContribHead']" setContent="Author contributions">
+		<description>Set Contrib Head content to be Author Contributions</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlCompHead']" setContent="Disclosure">
+		<description>Set Comp. Head content to be Conflict of Interest Statement</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlAppHead']" setContent="Supplementary material(s)">
+		<description>Set .jrnlAppHead content to be Supplementary material(s)</description>
+	</styleName>
+	<styleName id="f018" xpath="//span[@class='jrnlFigRef']" name="Figure Citations" validate-citation="1">
+		<description>Figure citations in text should be in Full, bold and linked to the respective figure.</description>
+	</styleName>
+	<styleName id="f018" xpath="//span[@class='jrnlFigRef']" name="Figure Citations" validate-citation="1">
+		<description>All the Figures should be cited in the text; if not, this should be raised as author query. Part figure citations in the text if missing must be queried to author.</description>
+	</styleName>
+	<styleName id="f017" xpath="//span[@class='partLabel']" name="PartLabel">
+		<description>Part label mention in figure caption must in uppercase</description>
+		<function name="uppercase"/>
+	</styleName>
+	<styleName id="f019" xpath="//p[@class='jrnlTblCaption']//span[@class='label']|//p[@class='jrnlFigCaption']//span[@class='label']" name="Table and Figure Caption" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>Figure and Table label should be bold</description>
+	</styleName>
+	<styleName id="e013" xpath="//p[@class='jrnlTblCaption']" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>remove dot at end of captions</description>
+	</styleName>
+	<styleName id="e012" xpath="//p[@class='jrnlFigCaption']|//*[@class='jrnlTblFoot'][not(@data-track='del')]">
+		<function name="addEndChar" endChar="."/>
+		<description>Add dot at end of captions</description>
+	</styleName>
+	<styleName id="f019" xpath="//table/thead/tr/*" name="Table Head" case="sentenceCase">
+		<description>Table head should be in sentence case</description>
+	</styleName>
+	<styleName id="f020" xpath="//span[@class='jrnlTblRef']" name="Table Citations" validate-citation="1">
+		<description>Text citations of Tables should be in full, bold and linked with respective table.</description>
+	</styleName>
+	<styleName id="e013" xpath="//*[@class='jrnlTblFoot']" replaceUsingRegex="/^[\s\(]*Notes?\s?[\:\=\,]\s?/">
+		<description>Remove Note in Table foot note</description>
+	</styleName>
+	<styleName id="e013" xpath="//*[@class='jrnlBlockQuote']" replaceUsingRegex="/^[\x{201C}\x{2018}\x{0022}\x{0027}]+/u===/[\x{201D}\x{2018}\x{0022}\x{0027}]+$/u">
+		<description>Remove quote from block quote</description>
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table" break="true">
+		<function name="blockFloats"/>
+	</styleName>
+	<styleName id="e013" xpath="//p[@class='jrnlTblCaption'][@data-id]">
+		<function name="splitCaptions"/>
+	</styleName>
+	<styleName id="f047" name="ParseReferece" xpath="//div[@class='back']">
+		<function name="parseReference"/>
+	</styleName>
+	<styleName id="f048" name="tableBibformat" xpath="//div[@class='body']|//div[@class='back']">
+		<function name="tableBibformat"/>
+	</styleName>
+	<styleName id="f048" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="e048" name="tableFNOrder" xpath="//div[@class='body']">
+		<function name="tableFNOrder" order="a,b,c,d,e,f,g,h" abbr-order="alpha">
+			<p class="jrnlTblFoot" fn-type="abbrev">
+				<span class="jrnlTblDefItem" data-suffix="; " data-suffix-lastnode=".">
+					<span class="jrnlAbbrevTerm"  data-suffix="= "/>
+					<span class="jrnlFootDefinition"/>
+				</span>
+			</p>
+		</function>
+	</styleName>
+	<styleName id="f048" name="addNodes" xpath="//div[@class='body']"  >
+		<function name="addNodes" data-xpath='//p[@class="jrnlDisclosurePara"]|//p[@class="jrnlDisclosureHead"]' metaXpath='//custom-meta[meta-name[text()="Disclosure"]]/meta-value' outputXpath="//div[@class='front']"><div class="jrnlFNGroup" data-fn-type="disclosure"><h1 class="jrnlDisclosureHead">Disclosure</h1><p class="jrnlDisclosurePara">The authors report no conflicts of interest in this work</p></div></function>
+	</styleName>
+	<styleName id="e048" name="equalconfig" xpath="//div[@class='front']">
+		<function name="equalconfig"/>
+	</styleName>
+	<styleName id="f020" xpath="//span[@class='jrnlPatterns'][@data-tag-desc='SYM']" name="Superscript Symbols" editing-rule-id="1">
+		<description>copyright and trademark symbols should appear in superscript</description>
+	</styleName>
+	<styleName id="f020" xpath="//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCity']|//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCountry']" replaceUsingRegex="/United Kingdom|England/|||UK"  name="UK">
+		<description>United Kingdom to UK</description>
+	</styleName>
+	<styleName id="f020" xpath="//div[@class='front']//p[@class='jrnlAff']//span[@class='jrnlCountry']" replaceUsingRegex="/United States( of America)?/|||USA" name="USA">
+		<description>United States of America or United States to USA</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlRefHead']" setContent="References">
+		<description>Set Ref Head content to be References</description>
+	</styleName>
+	<!-- <styleName id="f007" name="Funding Para" xpath="//*[@class='jrnlFundingPara']">
+		<function name="moveNode" nodexpath="//*[@class='jrnlAckPara'][last()]" attribute="class=jrnlAckPara;class-name=AckPara" track-change-ins="true"/>
+		<description>Move funding info( i.e., Para) into Acknowledgment section as AckPara</description>
+	</styleName>
+	<styleName id="f007" name="Funding" xpath="//*[@class='jrnlFundingHead']|//*[@class='jrnlFundingPara']">
+		<function name="markDeleted" />
+		<description>Mark funding info as deleted since, its moved to ack. section</description>
+	</styleName> -->
+	<styleName id="f007" name="Comp Head" xpath="//*[@class='jrnlCompHead']">
+		<function name="setAttribute" attribute="class=jrnlDisclosureHead"/>
+		<description>Change class of Comphead - DisclosureHead</description>
+	</styleName>
+	<styleName id="f007" name="Comp Head" xpath="//*[@class='jrnlCompPara']">
+		<function name="setAttribute" attribute="class=jrnlDisclosurePara"/>
+		<description>Change class of CompPara - DisclosurePara</description>
+	</styleName>
+	<styleName id="f007" name="Author Degree" xpath="//*[@class='jrnlAuthors']//*[@class='jrnlDegrees']">
+		<function name="markDeleted" />
+		<description>Mark funding info as deleted since, its moved to ack. section</description>
+	</styleName>
+	<!--styleName id="f049" name="addQuery" xpath="//span[@class='jrnlKeyword'][1][count(//span[@class='jrnlKeyword']) &lt; 6]">
+		<function type="action" name="addQuery">Dear author, please provide 6–7 keywords that are not already included in the article title.</function>
+	</styleName-->
+	<styleName id="f049" name="addQuery" xpath="//div[@class='body']/*[not(self::div)][not(contains(@class, 'Deleted'))][1]">
+		<function type="action" name="addQuery">Dear author, your paper has been edited for house style, grammar, and flow. Please check that your intended meanings have not been changed. Please confirm or advise corrections needed.</function>
+	</styleName>
+	<!-- <styleName id="f049" name="addQuery" xpath="//span[@class='jrnlKeyword'][contains(//*[@class='jrnlArtTitle']/text(),./text())][1]">
+		<function type="action" name="addQuery">Dear author, these keywords are used as search terms on the website. You can optimize your article search by using unique terms (not already given in the title). Please advise if you have some alternative keywords to include here.</function>
+	</styleName> -->
+	<!-- <styleName id="f048" name="addQuery" xpath="//span[@class='jrnlUncitedRef'][@data-uncited][@data-cite-type='reference']">
+		<function type="action" name="addQuery" data-query-action="uncited-citation">Dear Author, Please provide the references details for the in-text citations, or else please remove the citations.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//span[@class='jrnlUncitedRef'][@data-uncited][not(@data-cite-type)]">
+		<function type="action" name="addQuery" data-query-action="uncited-citation">Dear author, your <variable xpath="." /> is missing, please supply in its original format.</function>
+	</styleName> -->
+	<styleName id="f048" name="addQuery" xpath="//div[@class='jrnlAbsGroup'][@data-type='unstructured']/*[1]" data-xml-xpath-condition="//front//subj-group[@subj-group-type='display-channel']/subject[contains(., 'Original Research') or contains(., 'ORIGINAL RESEARCH')]">
+		<function type="action" name="addQuery">Dear author, As per our recently updated house style for Original Research papers, please reformat your abstract as a structured abstract, ie, with headings Background, Methods, Results, Conclusion. Please see https://www.dovepress.com/mutation-analysis-of-beta-thalassemia-in-east-western-indian-populatio-peer-reviewed-article-TACG for an example.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//div[@class='body']//span[@class='jrnlBibRef'][@data-tag-desc='AUTHORYEARREF'][@data-renumbered][1]">
+		<function type="action" name="addQuery">Dear author, the Harvard referencing has been changed to Vancouver style. Please check your citations and references carefully to ensure this has been done correctly. Please confirm.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//p[@class='jrnlRefText'][@data-uncited]">
+		<function type="action" name="addQuery" data-query-action="uncited-reference" data-float-id="data-id">Dear author, Please Cite this <variable xpath=".//span[contains(@class, 'RefAuthor') or contains(@class, 'RefCollaboration')][1]" />, <variable xpath=".//span[@class='RefYear'][1]" /> in the text.</function>
+	</styleName>
+	<!-- <styleName id="f048" name="addQuery" xpath="//p[@class='jrnlFigCaption'][@data-uncited]|//p[@class='jrnlTblCaption'][@data-uncited]">
+		<function type="action" name="addQuery" data-query-action="uncited-float" data-float-id="data-id">Dear author, Please provide an in-text citation for <variable xpath=".//span[@class='label'][1]" />.</function>
+	</styleName> -->
+	<styleName id="f048" name="addQuery" xpath="//p[@class='jrnlFigCaption'][@data-no-caption]|//p[@class='jrnlTblCaption'][@data-no-caption]">
+		<function type="action" name="addQuery" data-query-action="uncited-float" data-float-id="data-id">Dear author, Please provide a caption for <variable xpath=".//span[@class='label'][1]" />.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//p[@class='jrnlFigCaption'][@data-not-valid]|//p[@class='jrnlTblCaption'][@data-not-valid]">
+		<function type="action" name="addQuery" data-query-action="uncited-float" data-float-id="data-id">Dear author, We could not process the currently supplied document of <variable xpath=".//span[@class='label'][1]" />, so please use the "Replace" button and provide a valid table.</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//span[@class='jrnlPatterns'][@data-tag-type='OPR'][@data-tagger-patter='tilde'][1]">
+		<function type="action" name="addQuery">Dear author, should ~ be changed to – ?</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//span[@class='jrnlPatterns'][@data-tag-type='UNT'][@data-tagger-patter='mol'][1]">
+		<function type="action" name="addQuery">Dear author, should mol/m<sup>3</sup> be changed to mol/L ?</function>
+	</styleName>
+	<styleName id="f048" name="addQuery" xpath="//*[@class='jrnlRRH'][string-length(.) > 70]">
+		<function type="action" name="addQuery">Dear author, per house style, short title should be with less than 70 characters long. Please shorten the title.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word1'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word2'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word3'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word4'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word5'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word6'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//span[@data-tag-desc='SPECWORD'][@data-tagger-patter='word7'][1]">
+		<function type="action" name="addQuery">Dear Tania, please check <variable xpath=".//text()[1]" />.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//div[@class='back'][count(//*[@class='jrnlDisclosureHead']) = 0]">
+		<function name="addComponent" data-xpath="//div[@class='front']">
+			<div class="jrnlFNGroup" data-fn-type="disclosure"><h1 class="jrnlDisclosureHead">Disclosure</h1><p class="jrnlDisclosurePara">The authors report no conflicts of interest in this work</p></div>
+		</function>
+		<!-- <function type="action" name="addQuery" data-xpath="//*[@class='jrnlDisclosurePara']">Dear author, we have included our standard disclosure statement, please confirm or provide a replacement.</function> -->
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//*[contains(@class,'jrnlHead')][ php:functionString('preg_match', '/(table|figure)s?[\s\.\-][0-9]/i', .) > 0 ][1]">
+		<function type="action" name="addQuery">Dear author, the journal style does not allow citing of images or tables in a heading, please move the citation to the text of the paper.</function>
+	</styleName>
+	<!-- <styleName id="f049" name="addQuery" xpath="//p[@class='jrnlAbsPara'][last()][count(//span[@class='jrnlKeyword']) = 0]">
+		<function type="action" name="addQuery">Dear author, for search engine optimization please provide up to 7 keywords that do not already appear in your title.</function>
+	</styleName> -->
+	<styleName id="f049" name="addQuery" xpath="//h1[@class='jrnlRefHead']">
+		<function type="action" name="addQuery">Dear author, please check your references carefully as they have been updated per our online search. Please confirm.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//p[@class='jrnlAff'][@data-aff-reordered='true'][1]">
+		<function type="action" name="addQuery">Dear author, the affiliation have been reordered. Please check.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//div[@class='front']/p[@class='jrnlAuthors'][1]">
+		<function type="action" name="addQuery">The BJGP Open team may promote your article via social media. If you or the other authors have Twitter handles that you would like us to mention when we tweet the article, please provide them below. We can also include institutional twitter accounts, provided they are affiliated with the author/s.</function>
+	</styleName>
+	<styleName id="f009" name="addQuery" data-xml-xpath-condition="//contrib-group[1]//contrib[@contrib-type='author'][1]" xpath="//div[@class='front'][not(//p[@class='jrnlAuthors'])]">
+		<function type="action" name="addQuery" data-xml-xpath="//contrib-group[1]//contrib[@contrib-type='author'][1]">The BJGP Open team may promote your article via social media. If you or the other authors have Twitter handles that you would like us to mention when we tweet the article, please provide them below. We can also include institutional twitter accounts, provided they are affiliated with the author/s.</function>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+</styles>

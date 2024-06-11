@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="f001" xpath="//*[@class='jrnlArtTitle']" name="Article Title" case="titleCase">
+		<description>Article title should be in title case</description>
+	</styleName>
+    <styleName id="f001" name="Article title: Capitalization (after colon, hyphen or Em dash)" type="Manual">
+		<description>Always capitalize the first and last words of a title, regardless of the part of speech. Capitalize after a marked break (such as a colon or em dash)</description>
+	</styleName>
+    <styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" initials="closedup,withperiods"/>
+	</styleName>
+    <styleName id="e006" name="Authors" type="Manual">
+		<description>Style: As author provided, use full stops (ie if full first name or initials, leave as author provides), initials spaced (e.g. Gerald F. L. Bills1)</description>
+	</styleName>
+	<styleName id="f007" name="Author Degree" xpath="//*[@class='jrnlAuthors']//*[@class='jrnlDegrees']" replaceUsingRegex="/[\.]+/">
+		<description>Remove dot from author degree</description>
+	</styleName>
+    <styleName id="e006" name="Article title: Affiliation designators" type="Manual">
+		<description>Superscript numbers, in sequence, comma separated  with no space between comma and number if there is more than one affiliation, before the comma separating authors:  Trevor Jones1*, </description>
+	</styleName>
+	<styleName id="e002" xpath="//div[@class='front']//*[@class='jrnlAbsHead']" name="Abstract" replaceUsingRegex="/(Abstract)[\.\;\:\s]+/|||$1">
+		<description>Remove the punctuation in abstract</description>
+	</styleName>
+    <styleName id="e007" xpath="//p[@class='jrnlFigCaption']" replaceUsingRegex="/([^\.])[\.\;\:\s]*$$/|||$1.">
+		<description>Add dot at end of captions</description>
+		<function name="addEndChar" endChar="."/>
+	</styleName>
+    <styleName id="e008" xpath="//p[@class='jrnlFigCaption']//span[@class='label']" name="Figure Label" validate-citation="1">
+		<description>Format: Figure 1.</description>
+	</styleName>
+  <styleName id="f017" xpath="//span[@class='partLabel']" name="PartLabel">
+		<description>Part label mention in figure caption must in lowercase</description>
+		<function name="unwrapTag"/>
+	</styleName>
+    <styleName id="e007" xpath="//p[@class='jrnlTblCaption']" replaceUsingRegex="/([^\.])[\.\;\:\s]*$$/|||$1.">
+		<description>Add dot at end of captions</description>
+		<function name="addEndChar" endChar="."/>
+	</styleName>
+    <styleName id="e012" xpath="//p[@class='jrnlTblCaption']//span[@class='label']" name="Table Label" validate-citation="1">
+		<description>Format: Table 1.</description>
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table" break="true">
+		<function name="blockFloats"/>
+	</styleName>
+    <styleName id="e025" xpath="//span[@data-tag-desc='VAR,OPR,VAL,OPRS,VALS,UNT']" name="Decimals" editing-rule-id="1">
+		<description>Always use leading zero (ie 0.01)</description>
+	</styleName>
+    <styleName id="e011" style="jrnlAbsTitle" name="Headings">
+		<detail>Abstract Head</detail>
+		<desciption></desciption>
+	</styleName>
+    <styleName id="e029" xpath="//*[@class='jrnlRefHead']" setContent="References">
+		<description>Set Ref Head content to be References</description>
+	</styleName>
+    <styleName id="e029" xpath="//*[@class='jrnlAckHead']" setContent="Acknowledgments">
+		<description>Set Acknowledgements Head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlDataAvailabilityHead']" setContent="Availability of Data and Materials">
+		<description>Set Data availability Head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlCompHead']" setContent="Declaration of Conflicting Interests">
+		<description>Set Conflicting Head</description>
+	</styleName>
+	<styleName id="e029" xpath="//*[@class='jrnlDisclosureHead']" setContent="Disclosures">
+		<description>Set Disclosures Head</description>
+	</styleName>
+    <styleName id="f049" name="addQuery" xpath="//*[@class='jrnlAbsHead']">
+		<function type="action" name="addQuery" project="sextrans">As part of our aim to expand readership, we ask all authors to provide a version of their abstract in their native language. If you are from a non-English speaking country, please could you provide a translation of your Abstract in your native language for us to provide as a supplementary file for your article?</function>
+	</styleName>
+    <styleName id="e048" name="tableFNOrder" xpath="//div[@class='body']">
+		<function name="tableFNOrder" order="a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z" refformat="sup"/>
+	</styleName>
+    <styleName id="e019" xpath="//span[@data-tag-desc='VAL,UNT']" name="SI Units" editing-rule-id="1">
+		<description>Spaced units, 50 msec</description>
+	</styleName>
+    <styleName id="e029" xpath="//span[@data-tag-desc='ERA']" name="Era designation" editing-rule-id="1">
+		<description>Era designation should have dot(.)</description>
+	</styleName>
+	<styleName id="e029" xpath="//span[@data-tag-desc='ORDI']" name="ORDI" editing-rule-id="1">
+		<description>Remove Superscript</description>
+	</styleName>
+    <styleName id="e018" xpath="//span[@data-tag-desc='VAL,UNT']" name="Temperature" editing-rule-id="1">
+		<description>Degrees C - closed up, 80°C</description>
+	</styleName>
+	<styleName id="e052" xpath="//span[@data-tag-desc='DEGREE']" name="Degree" editing-rule-id="1">
+		<description>To remove dot in the degree</description>
+	</styleName>
+	<styleName id="e018" xpath="//span[@data-tag-desc='VERSUS']" name="Versus to vs" editing-rule-id="1">
+		<description>change versus/vs. to vs</description>
+	</styleName>
+	<styleName id="e052" xpath="//span[@data-tag-desc='APOS']" name="Apostrope" editing-rule-id="1">
+		<description>Remove apostrope in year (1980's)</description>
+	</styleName>
+	<styleName id="e027" xpath="//span[@data-tag-desc='SNUM']" name="Numbers lower than 10" editing-rule-id="1">
+		<description>Spell out unless with unit, in which case numerals</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='SNUM']" name="Ordinals" editing-rule-id="1">
+		<description>only ordinals first through ninth spelled out, 10th onwards</description>
+	</styleName>
+	<styleName id="e028" xpath="//span[@data-tag-desc='ORDI']" name="Ordinals" editing-rule-id="1" removeFormatting="true">
+		<description>only ordinals first through ninth spelled out, 10th onwards</description>
+	</styleName>
+	<styleName id="f039" xpath="//span[@data-tag-desc='ORDI']" name="Ordinals" editing-rule-id="1">
+		<description>Spell out one to nine and also numbers at the beginning of the sentence (but will not change in units, weeks, days, and month).</description>
+	</styleName>
+    <styleName id="e013" xpath="//span[@class='jrnlTblRef']" name="Table Citations" case="sentenceCase" validate-citation="1">
+		<description>Capital T e.g. see Table 1</description>
+	</styleName>
+    <styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='THSE']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+    <styleName id="e018" xpath="//span[@data-tag-desc='VERSUS']" name="Versus to vs." editing-rule-id="1">
+		<description>change versus/vs to vs.</description>
+	</styleName>
+    <styleName id="e010" xpath="//span[@data-tag-desc='HIGH']" name="Highlighted Word" editing-rule-id="1">
+		<description>Highlighted Word</description>
+	</styleName>
+	<styleName id="e038" name="RunningHead" xpath="//*[@class='jrnlRRH']">
+		<function name="setAttribute" attribute="class=jrnlLRH"/>
+		<description>Change class of RRH.</description>
+	</styleName>
+	<styleName id="f034" name="Latin and Greek phrases" type="Manual">
+		<description>Latin and Greek phrases are used in italics</description>
+	</styleName>
+	<styleName id="f050" xpath="//span[@data-tag-desc='APP,PRE,PREP,RNG,SUF,SREP,UNT']" name="SI Units" editing-rule-id="1">
+		<description>Range Should have en dash</description>
+	</styleName>
+	<styleName id="f038" xpath="//span[@data-tag-desc='VAL,UNT']" name="SI Units" editing-rule-id="1">
+		<description>Units should be separated by non-breaking space</description>
+	</styleName>
+	<styleName id="e021" xpath="//span[@data-tag-desc='VAL,RNGS,RNGC,RNGE,UNT']" name="Range" editing-rule-id="1">
+		<description>En-dashes for ranges, 30–90% not 30%–90%</description>
+	</styleName>
+   	<styleName id="e048" name="ParseReferece" xpath="//div[@class='back']">
+		<function name="parseReference"/>
+	</styleName>
+    <styleName id="e048" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="f004" name="Funding" xpath="//div[@class='back'][count(//*[@class='jrnlFundingHead']) = 0]">
+		<function name="addComponent" data-xpath="//div[@class='front']">
+			<div class="jrnlFNGroup" data-fn-type="funding" data-label="Funding"><h1 class="jrnlFNHead">Funding</h1><p class="jrnlFNPara">The author(s) received no financial support for the research, authorship, and/or publication of this article.</p></div>
+		</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//div[@class='back'][count(//*[@class='CompetingHead']) = 0]">
+		<function name="addComponent" data-xpath="//div[@class='front']">
+			<div class="jrnlFNGroup" data-fn-type="conflict"><h1 class="jrnlFNHead">Declaration of Conflicting Interests</h1><p class="jrnlFNPara">The authors report no conflicts of interest in this work.</p></div>
+			</function>
+			<function type="action" name="addQuery" query-for="author" assigned-to-role="Author" data-xpath="//*[@class='jrnlFNGroup'][@data-fn-type='conflict']/*[@class='jrnlFNHead']">Please confirm if the provided conflicts statements are accurate.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//div[@class='back'][count(//*[@class='DisclaimerHead']) = 0]">
+		<function name="addComponent" data-xpath="//div[@class='front']">
+			<div class="jrnlFNGroup" data-fn-type="disclaimer"><h1 class="jrnlFNHead">Disclosure</h1><p class="jrnlFNPara">The authors report no financial disclosures related to this article.</p></div>
+			</function>
+			<function type="action" name="addQuery" query-for="author" assigned-to-role="Author" data-xpath="//*[@class='jrnlFNGroup'][@data-fn-type='disclaimer']/*[@class='jrnlFNHead']">Please confirm if the provided disclosure are accurate.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//p[@class='jrnlAbsPara'][last()][count(//p[@class='jrnlKeywordPara']) = 0]">
+		<function type="action" name="addQuery">Please provide the keywords list.</function>
+	</styleName>
+	<styleName id="f049" name="addQuery" xpath="//*[@class='jrnlAuthors']">
+		<function type="action" name="addQuery">Please confirm each author's name is correct as presented: check first name (eg, Mike vs Michael), inclusion of middle name/initial, spelling, and academic degrees.</function>
+	</styleName>
+	<styleName id="f007" name="Keywords" case="lowerCase" type="Manual">
+		<description>All the keywords should be in lowercase, unless if it is a country name or other technical words</description>
+	</styleName>
+	<styleName id="f007" name="Keywords" case="lowerCase" type="Manual">
+		<description>Keywords separated by comma and no full stop at the end. All the articles should contain a minimum of 5 and a maximum of 8 keywords.</description>
+	</styleName>
+	<styleName id="f009" xpath="//span[@class='jrnlKeyword']" style="jrnlKeyword" name="Key Words">
+		<desciption>change to lowercase if given in keywords</desciption>
+		<function name="lowercase"/>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+</styles>

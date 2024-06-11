@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<styles>
+	<styleName id="e002" style="jrnlAuthors" name="Authors" break="true">
+		<function name="parseAuthorAff" />
+	</styleName>
+	<styleName id="e007" xpath="//p[contains(@class, 'Caption')]|//table" break="true">
+		<function name="blockFloats"/>
+	</styleName>
+	<styleName id="e048" name="tableFNOrder" xpath="//div[@class='body']">
+		<function name="tableFNOrder" order=""/>
+	</styleName>
+	<styleName id="e048" name="Identify repeated author" xpath="//div[@class='back']">
+		<function name="identifyRepeatedAuthor"/>
+	</styleName>
+	<styleName id="e048" name="Remove asterisk in the reference"  xpath="//div[@class='back']">
+		<function name="removeAsteriskInReference" asterisk-type="single"/>
+	</styleName>
+	<styleName id="e048" name="ParseReferece" xpath="//div[@class='back']">
+		<function name="parseReference"/>
+	</styleName>
+	<!-- Removed parseReferenceAuthors due to author split done in CSL. Hemamalini 01-06-2023 -->
+	<!-- <styleName id="f001" name="parseReferenceAuthors" xpath="//div[@class='back']" project="brill.15367,brill.42895,jhl,phr,xmlconversion">
+		<function name="parseReferenceAuthors"/>
+	</styleName> -->
+	<styleName id="f001" name="referenceGrouping" xpath="//div[@class='back']">
+		<function name="referenceGrouping"/>
+	</styleName>
+	<styleName id="f001" name="validateCitations" xpath="//div[@class='body']">
+		<function name="validateCitations"/>
+	</styleName>
+	<styleName id="f001" name="validateFootNoteCitations" xpath="//div[@class='body']">
+		<function name="validateFootNoteCitations"/>
+	</styleName>
+	<styleName id="f007" name="Typeset Tables" xpath="//div[@class='body']">
+		<function name="typesetTables" />
+		<description>Table setting mechanism</description>
+	</styleName>
+	<styleName id="e003" name="Article title: Capitalization (others)">
+		<description>Genuses, proper nouns. Usual stuff.</description>
+	</styleName>
+	<styleName id="f001" xpath="//*[@class='jrnlArtTitle']" name="Article Title" case="titleCase">
+		<description>Article title should be in title case</description>
+	</styleName>
+    <styleName id="e003" style="jrnlHead1" name="Headings" case="titleCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<detail>1st level [H1]</detail>
+		<desciption> </desciption>
+	</styleName>
+	<styleName id="e004" style="jrnlHead2" name="Headings" case="titleCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<detail>2nd level [H2]</detail>
+		<desciption></desciption>
+	</styleName>
+    <styleName id="e005" style="jrnlHead3" name="Headings" case="titleCase" removeFormatting="true">
+		<detail>3rd level [H3]</detail>
+		<desciption>Title case, not run in, black, larger font </desciption>
+	</styleName>
+    <styleName id="e012" xpath="//p[@class='jrnlTblCaption']//span[@class='label']" name="Table Label" validate-citation="1">
+		<description>Format: Table 1.</description>
+	</styleName>
+    <styleName id="e009" style="jrnlTblCaption" name="Figure" case="titleCase" removeFormatting="true">
+		<detail>Label</detail>
+		<desciption>Title 1.</desciption>
+	</styleName>
+    <styleName id="e013" xpath="//p[@class='jrnlTblCaption']" replaceUsingRegex="/[\.\;\:\s]+$/">
+		<description>remove dot at end of captions</description>
+	</styleName>
+    <styleName id="f002" xpath="//table/thead/tr/*" name="Table Head" case="titleCase">
+		<description>Table head should be in title case</description>
+	</styleName>
+    <styleName id="e013" xpath="//span[@class='jrnlTblRef']" name="Table Citations" case="titleCase">
+		<description>Capital T e.g. see Table 1</description>
+	</styleName>
+    <styleName id="e031" xpath="//span[@data-tag-desc='VAL,PER']" name="10 %" editing-rule-id="1">
+		<description>Remove space with percentage</description>
+	</styleName>
+	<styleName id="e031" xpath="//span[@data-tag-desc='HYPTOMIN,VAL']" name="10 %" editing-rule-id="1">
+		<description>Remove space with percentage</description>
+	</styleName>
+    <styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='THSE']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+	<styleName id="e043" name="Number Format" xpath="//span[@data-tag-desc='NUM,TIME']" editing-rule-id="1">
+		<description>Use commas in 4 digit numbers and above e.g. 42,980. But if author changes it on proof stage we allow then to remove as long as consistent</description>
+	</styleName>
+    <styleName id="e008" xpath="//p[@class='jrnlFigCaption']//span[@class='label']" name="Figure Label" validate-citation="1">
+		<description>Format: Figure 1.</description>
+	</styleName>
+    <styleName id="e009" style="jrnlFigCaption" name="Figure" case="sentenceCase" removeFormatting="true">
+		<detail>Label</detail>
+		<function name="addEndChar" endChar="."/> 
+		<desciption>Figure 1.</desciption>
+	</styleName>
+    <styleName id="e013" style="jrnlVidCaption" name="Video" case="titleCase" removeFormatting="true" replaceUsingRegex="/[\.\;\:\s]+$/"> 
+		<desciption>Video caption in title case without end period.</desciption>
+	</styleName>
+    <styleName id="f018" xpath="//span[@class='jrnlFigRef']" name="Figure Citations" validate-citation="1">
+		<description>Figure citations in text should be in Full, bold and linked to the respective figure.</description>
+	</styleName>
+    <styleName id="e014" xpath="//span[@data-tag-desc='VAL,RNGS,RNGC,RNGE,UNT']" name="Range" editing-rule-id="1">
+		<description>En-dashes for ranges, 30–90% not 30%–90%</description>
+	</styleName>
+    <styleName id="e018" xpath="//span[@data-tag-desc='VAL,UNT']" name="Temperature" editing-rule-id="1">
+		<description>Degrees C - closed up, 80°C</description>
+	</styleName>
+	<styleName id="e040" name="Float Number Format" xpath="//span[@data-tag-desc='FLOAT']" editing-rule-id="1">
+		<description>Don't use leading zero (0.01 to .01)</description>
+	</styleName>
+</styles>
